@@ -2,14 +2,12 @@
 {
   public class PhotoProcessor
   {
-    public void Process(string path)
+    public delegate void PhotoFiltersHandler(Photo photo);
+    public void Process(string path, PhotoFiltersHandler photoFiltersHandler)
     {
       var photo = new Photo();
 
-      var filters = new PhotoFilters();
-      filters.ApplyBrightness(photo);
-      filters.ApplyContrast(photo);
-      filters.Resize(photo);
+      photoFiltersHandler(photo);
 
       photo.Save();
     }

@@ -11,7 +11,10 @@ namespace delegates
     static void Main(string[] args)
     {
       var photoProcessor = new PhotoProcessor();
-      photoProcessor.Process(string.Empty);
+      var photoFilters = new PhotoFilters();
+      PhotoProcessor.PhotoFiltersHandler handler = photoFilters.ApplyBrightness;
+      handler += photoFilters.ApplyContrast;
+      photoProcessor.Process(string.Empty, handler);
       Console.WriteLine("Precess any key to continue ...");
       Console.ReadLine();
     }
