@@ -10,6 +10,10 @@ namespace delegates
   {
     static void Main(string[] args)
     {
+      var photoProcessor = new PhotoProcessor();
+      photoProcessor.Process(string.Empty);
+      Console.WriteLine("Precess any key to continue ...");
+      Console.ReadLine();
     }
   }
 }
