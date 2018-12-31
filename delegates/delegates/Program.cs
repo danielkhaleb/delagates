@@ -14,9 +14,15 @@ namespace delegates
       var photoFilters = new PhotoFilters();
       PhotoProcessor.PhotoFiltersHandler handler = photoFilters.ApplyBrightness;
       handler += photoFilters.ApplyContrast;
+      handler += AddNewFilter;
       photoProcessor.Process(string.Empty, handler);
       Console.WriteLine("Precess any key to continue ...");
       Console.ReadLine();
+    }
+
+    public static void AddNewFilter(Photo photo)
+    {
+      Console.WriteLine("Add new filter");
     }
   }
 }
