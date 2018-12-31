@@ -1,9 +1,11 @@
-﻿namespace delegates
+﻿using System;
+
+namespace delegates
 {
   public class PhotoProcessor
   {
-    public delegate void PhotoFiltersHandler(Photo photo);
-    public void Process(string path, PhotoFiltersHandler photoFiltersHandler)
+    
+    public void Process(string path, Action<Photo> photoFiltersHandler)
     {
       var photo = new Photo();
 

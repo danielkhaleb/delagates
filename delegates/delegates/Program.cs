@@ -12,7 +12,7 @@ namespace delegates
     {
       var photoProcessor = new PhotoProcessor();
       var photoFilters = new PhotoFilters();
-      PhotoProcessor.PhotoFiltersHandler handler = photoFilters.ApplyBrightness;
+      Action<Photo> handler = photoFilters.ApplyBrightness;
       handler += photoFilters.ApplyContrast;
       handler += AddNewFilter;
       photoProcessor.Process(string.Empty, handler);
